@@ -8,16 +8,16 @@ namespace Carpenter.SqlAssemblyBits
     {
         public static void Main(string[] args)
         {
-            var prog = new Program();
+            Program prog = new Program();
             prog.Run(args[0]);
         }
 
         private void Run(string dllPath)
         {
-            var bits = new StringBuilder("0x");
-            using (var fs = new FileStream(dllPath, FileMode.Open, FileAccess.Read))
+            StringBuilder bits = new StringBuilder("0x");
+            using (FileStream fs = new FileStream(dllPath, FileMode.Open, FileAccess.Read))
             {
-                var buffer = new byte[8192];
+                byte[] buffer = new byte[8192];
                 int bytesRead = fs.Read(buffer, 0, buffer.Length);
                 while (bytesRead > 0)
                 {

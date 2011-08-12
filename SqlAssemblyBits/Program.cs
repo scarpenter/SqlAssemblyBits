@@ -8,6 +8,11 @@ namespace Carpenter.SqlAssemblyBits
     {
         public static void Main(string[] args)
         {
+            if (args.Length != 1)
+            {
+                Usage();
+                return;
+            }
             Program prog = new Program();
             prog.Run(args[0]);
         }
@@ -29,6 +34,12 @@ namespace Carpenter.SqlAssemblyBits
                 }
             }
             Console.WriteLine(bits.ToString());
+        }
+
+        private static void Usage()
+        {
+            Console.WriteLine("Usage: SqlAssemblyBits <path_to_dll>");
+            Console.WriteLine();
         }
     }
 }
